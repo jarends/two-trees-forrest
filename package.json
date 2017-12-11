@@ -1,0 +1,64 @@
+{
+    "name": "two-trees-forrest",
+    "version": "0.0.1",
+    "description": "A component set build with two-trees.",
+    "main": "index.js",
+    "scripts": {
+        "postinstall": "npm run once",
+        "start": "npm run watch",
+        "once": "npm run src-once && npm run scss-once && npm run pack-main-once && npm run pack-index-once && npm run test-once",
+        "watch": "npm run once && concurrently -k -r 'salter' 'npm run src-watch' 'npm run scss-watch' 'npm run pack-main-watch' 'npm run pack-index-watch' 'npm run test-watch'",
+        "src-once": "coffee -c -m -o ./src/js ./src/coffee",
+        "src-watch": "coffee -w -m -o ./src/js ./src/coffee",
+        "scss-once": "node-sass --source-map true -o ./src/css ./src/scss",
+        "scss-watch": "node-sass --source-map true -w -o ./src/css ./src/scss",
+        "pack-main-once": "wzp -em -bp ./src -p ./js/main.js",
+        "pack-main-watch": "wzp -w -em -bp ./src -p ./js/main.js",
+        "pack-index-once": "wzp -em -bp ./src -p ./js/index.js",
+        "pack-index-watch": "wzp -w -em -bp ./src -p ./js/index.js",
+        "test-once": "npm run test-src-once && npm run test-pack-once && npm run karma-once",
+        "test-watch": "concurrently -k -r 'npm run test-src-watch' 'npm run test-pack-watch' 'npm run karma-watch'",
+        "test-src-once": "coffee -c -m -o ./test/js ./test/coffee",
+        "test-src-watch": "coffee -w -m -o ./test/js ./test/coffee",
+        "test-pack-once": "wzp -em -bp ./test -p ./js/index.js",
+        "test-pack-watch": "wzp -w -em -bp ./test -p ./js/index.js",
+        "karma-once": "karma start --single-run || true",
+        "karma-watch": "karma start || true",
+        "app": "electron ./src/index.html",
+        "update-git": "npm run update-mycs && npm run update-two-trees",
+        "update-mycs": "npm uninstall mycs && npm install mycs",
+        "update-two-trees": "npm uninstall two-trees && npm install two-trees"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jarends/two-trees-forrest.git"
+    },
+    "keywords": [],
+    "author": "jarends",
+    "license": "Unlicense",
+    "bugs": {
+        "url": "https://github.com/jarends/two-trees-forrest/issues"
+    },
+    "homepage": "https://github.com/jarends/two-trees-forrest#readme",
+    "dependencies": {
+        "emap": "0.0.12",
+        "mycs": "git+https://git@github.com/jarends/mycs.git#master",
+        "two-trees": "git+https://git@github.com/jarends/two-trees.git#master"
+    },
+    "devDependencies": {
+        "chai": "^4.0.2",
+        "coffee-script": "^1.12.6",
+        "concurrently": "^3.4.0",
+        "electron": "^1.7.9",
+        "karma": "^1.7.0",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-mocha": "^1.3.0",
+        "karma-mocha-clean-reporter": "0.0.1",
+        "mocha": "^3.4.2",
+        "node-sass": "^4.5.3",
+        "salter": "^1.1.4",
+        "werkzeug-packer": "^0.0.6"
+    },
+    "typings": "./index.d.ts"
+}

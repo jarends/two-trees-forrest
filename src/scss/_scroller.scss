@@ -1,0 +1,131 @@
+$scroller-size: 15px;
+$scroller-track-color: #666666;
+$scroller-thumb-color: #CCCCCC;
+
+
+.scroller {
+    position: absolute;
+    display: none;
+}
+
+
+.scroller__track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $scroller-track-color;
+}
+
+
+.scroller__thumb {
+    position: absolute;
+    background-color: $scroller-thumb-color;
+    cursor: pointer;
+}
+
+
+
+
+.v-scroller {
+    width: $scroller-size;
+    right: 0px;
+    top: 0px;
+}
+
+
+.v-scroller__track {
+}
+
+
+.v-scroller__thumb {
+    width: 100%;
+    height: 50px;
+}
+
+
+
+
+.h-scroller {
+    height: $scroller-size;
+    left: 0px;
+    bottom: 0px;
+
+}
+
+
+.h-scroller__track {
+}
+
+
+.h-scroller__thumb {
+    width: 50px;
+    height: 100%
+}
+
+
+.scrollable {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &.scroll-y {
+
+        & > .scrollable__container {
+            right: $scroller-size;
+        }
+
+        & > .v-scroller {
+            display: block;
+            bottom: 0px;
+        }
+
+        & > .h-scroller {
+            display: none;
+        }
+    }
+
+    &.scroll-x {
+
+        & > .scrollable__container {
+            bottom: $scroller-size;
+        }
+
+        & > .v-scroller {
+            display: none;
+        }
+
+        & > .h-scroller {
+            display: block;
+            right: 0px
+        }
+    }
+
+    &.scroll-y.scroll-x {
+
+        & > .v-scroller {
+            display: block;
+            bottom: $scroller-size;
+        }
+
+        & > .h-scroller {
+            display: block;
+            right: $scroller-size;
+        }
+    }
+}
+
+
+.scrollable__container {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.scrollable__content {
+    position: absolute;
+}
