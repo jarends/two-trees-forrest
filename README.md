@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/two-trees-icon-256.png" alt="two-trees"/>
+  <img src="img/two-trees-forrest-icon-256.png" alt="two-trees"/>
 </p>
 
 # two-trees-forrest
