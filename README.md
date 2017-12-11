@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/two-trees-icon-256.png" alt="two-trees"/>
+</p>
+
 # two-trees-forrest
 
 A component set build with two-trees.
